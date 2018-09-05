@@ -16,7 +16,7 @@ namespace MicrosoftRewards
             LoadDict();
             Console.WriteLine($"Loaded {dict.Count()} words");
             var rng = new Random();
-            for (var i=0;i<25; i++)
+            for (var i=0;i<34; i++)
             {
                 var query = GenQuery();
                 System.Diagnostics.Process.Start("cmd", $"/C start microsoft-edge:https://www.bing.com/search?q={query}");
