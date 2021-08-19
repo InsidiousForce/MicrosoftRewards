@@ -20,17 +20,15 @@ namespace MicrosoftRewards
             {
                 var query = GenQuery();
                 System.Diagnostics.Process.Start("cmd", $"/C start microsoft-edge:https://www.bing.com/search?q={query}");
-                SleepFor(rng.Next(1200, 6000));
+                SleepFor(rng.Next(600, 3000));
             }
         }
 
         private static void LoadDict()
         {
-            var auxList = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceNames();
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
             Stream resource = assembly.GetManifestResourceStream("MicrosoftRewards.words.txt");
             string line;
-            List<string> lines = new List<string>();
             using (StreamReader sr = new StreamReader(resource))
                 while ((line = sr.ReadLine()) != null)
                     dict.Add(line);
