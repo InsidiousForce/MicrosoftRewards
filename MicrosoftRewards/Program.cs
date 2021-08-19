@@ -20,7 +20,7 @@ namespace MicrosoftRewards
             {
                 var query = GenQuery();
                 System.Diagnostics.Process.Start("cmd", $"/C start microsoft-edge:https://www.bing.com/search?q={query}");
-                SleepFor(rng.Next(600, 3000));
+                SleepFor(rng.Next(1200, 6000));
             }
         }
 
