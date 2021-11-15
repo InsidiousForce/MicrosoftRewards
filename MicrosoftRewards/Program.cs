@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace MicrosoftRewards
 {
@@ -30,7 +25,7 @@ namespace MicrosoftRewards
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
             Stream resource = assembly.GetManifestResourceStream("MicrosoftRewards.words.txt");
             string line;
-            using (StreamReader sr = new StreamReader(resource))
+            using (var sr = new StreamReader(resource))
             {
                 while ((line = sr.ReadLine()) != null)
                     dict.Add(line);
@@ -45,7 +40,7 @@ namespace MicrosoftRewards
             {
                 if (i > 0 && rng.NextDouble() < 0.5) continue;
                 sb.Append(dict.Skip(rng.Next(0, dict.Count - 1)).Take(1).First());
-                sb.Append("+");
+                sb.Append('+');
             }
 
             sb.Remove(sb.Length - 1, 1);
