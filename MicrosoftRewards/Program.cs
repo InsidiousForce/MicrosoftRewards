@@ -14,7 +14,7 @@ namespace MicrosoftRewards
         static void Main(string[] args)
         {
             LoadDict();
-            Console.WriteLine($"Loaded {dict.Count()} words");
+            Console.WriteLine($"Loaded {dict.Count} words");
             var rng = new Random();
             for (var i=34;i>0; i--)
             {
@@ -31,8 +31,10 @@ namespace MicrosoftRewards
             Stream resource = assembly.GetManifestResourceStream("MicrosoftRewards.words.txt");
             string line;
             using (StreamReader sr = new StreamReader(resource))
+            {
                 while ((line = sr.ReadLine()) != null)
                     dict.Add(line);
+            }
         }
 
         private static string GenQuery()
@@ -42,7 +44,7 @@ namespace MicrosoftRewards
             for (var i=0; i<5; i++)
             {
                 if (i > 0 && rng.NextDouble() < 0.5) continue;
-                sb.Append(dict.Skip(rng.Next(0, dict.Count()-1)).Take(1).First());
+                sb.Append(dict.Skip(rng.Next(0, dict.Count - 1)).Take(1).First());
                 sb.Append("+");
             }
 
