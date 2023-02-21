@@ -16,7 +16,7 @@ namespace MicrosoftRewards
                 Console.WriteLine(i);
                 var query = GenQuery();
                 System.Diagnostics.Process.Start("cmd", $"/C start microsoft-edge:https://www.bing.com/search?q={query}");
-                SleepFor(rng.Next(1200, 6000));
+                SleepFor(rng.Next(800, 3000));
             }
         }
 
